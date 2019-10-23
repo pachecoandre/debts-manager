@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import CustomersService from '../services/customers.service'
 
 export default class Customers extends Component {
+  state = {
+    customers: []
+  }
   constructor(props) {
     super(props)
-    this.state = {
-      customers: []
-    }
     this.service = new CustomersService()
   }
 
