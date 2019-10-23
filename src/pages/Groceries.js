@@ -73,7 +73,7 @@ export default class DebtsPage extends Component {
             Cliente
             <Dropdown customers={this.state.customers} inputName="customerName" />
             <input type="text" name='description' placeholder="Descrição"></input>
-            <input type="number" name='value' placeholder="Valor" step="any"></input>
+            <input type="number" name='value' placeholder="Valor" step="any" required></input>
             <button>Adicionar</button>
           </div>
         </form>
@@ -85,8 +85,9 @@ export default class DebtsPage extends Component {
           handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}
         />
         <EditModal
-          debtUnderEdition={this.state.debtUnderEdition}>
-          handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}
+          customers={this.state.customers}
+          debtUnderEdition={this.state.debtUnderEdition} 
+          handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}>          
         </EditModal>
       </div>
     )

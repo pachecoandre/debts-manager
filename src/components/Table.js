@@ -27,7 +27,7 @@ const Table = (props) => (
               </td>
               <td>
                 <button onClick={(e) => {
-                  props.handleEditGrocery(item.id)
+                  props.handleEditGrocery(item)
                 }}
                 >editar</button>
               </td>
