@@ -9,6 +9,7 @@ const Table = (props) => (
           <th>Descrição</th>
           <th>Valor</th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,12 @@ const Table = (props) => (
                   props.handleDeleteGrocery(item.id)
                 }}
                 >remover</button>
+              </td>
+              <td>
+                <button onClick={(e) => {
+                  props.handleEditGrocery(item.id)
+                }}
+                >editar</button>
               </td>
             </tr>
           ))
