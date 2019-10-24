@@ -21,13 +21,13 @@ const Table = (props) => (
               <td>{item.value}</td>
               <td>
                 <button onClick={(e) => {
-                  props.handleDeleteGrocery(item.id)
+                  props.handleDeleteDebt(item.id)
                 }}
                 >remover</button>
               </td>
               <td>
                 <button onClick={(e) => {
-                  props.handleEditGrocery(item)
+                  props.handleEditDebt(item)
                 }}
                 >editar</button>
               </td>

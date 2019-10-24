@@ -16,7 +16,7 @@ export default class DebtsPage extends Component {
     this.service = new CustomersService()
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.getCustomers()
   }
 
@@ -29,22 +29,38 @@ export default class DebtsPage extends Component {
     this.setState(() => ({ customers: names }))
   }
 
-  handleDeleteGrocery = (groceryToRemove) => {
+  handleDeleteDebt = (debtToRemove) => {
     this.setState((prevState) => ({
-      debts: prevState.debts.filter((item) => item.id !== groceryToRemove)
+      debts: prevState.debts.filter((item) => item.id !== debtToRemove)
     }))
   }
 
-  handleEditGrocery = (groceryToEdit) => {
+  handleEditDebt = (debtToEdit) => {
     this.setState(() => {
-      return ({ debtUnderEdition: groceryToEdit })})
+      return ({ debtUnderEdition: debtToEdit })})
+  }
+
+  handleSaveChanges = (e) => {
+    e.preventDefault()
+    // console.log(`Debt ID:`, this.state.debtUnderEdition.id)
+    const customerName = e.target.elements.customerName.value
+    const description = e.target.elements.description.value.trim()
+    const value = e.target.elements.value.value
+    this.setState((prevState) => ({
+      debts: prevState.debts.map((item) => {
+        if (item.id === this.state.debtUnderEdition.id) {
+          item = { ...item, name: customerName, description, value }
+        }
+        return item
+      })
+    }))
   }
 
   handleClearDebtUnderEdition = () => {
-    this.setState((prevState) => ({ debtUnderEdition: undefined }))
+    this.setState(() => ({ debtUnderEdition: undefined }))
   }
 
-  handleNewGrocery = (e) => {
+  handleNewDebt = (e) => {
     e.preventDefault()
     const customerName = e.target.elements.customerName.value
     const description = e.target.elements.description.value.trim()
@@ -68,7 +84,7 @@ export default class DebtsPage extends Component {
     return (
       <div>
         <h2>Compras</h2>
-        <form onSubmit={this.handleNewGrocery}>
+        <form onSubmit={this.handleNewDebt}>
           <div className='inputbar'>
             Cliente
             <Dropdown customers={this.state.customers} inputName="customerName" />
@@ -80,12 +96,13 @@ export default class DebtsPage extends Component {
         <br />
         <Table
           debts={this.state.debts}
-          handleDeleteGrocery={this.handleDeleteGrocery}
-          handleEditGrocery={this.handleEditGrocery}
+          handleDeleteDebt={this.handleDeleteDebt}
+          handleEditDebt={this.handleEditDebt}
           handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}
         />
         <EditModal
           customers={this.state.customers}
+          handleSaveChanges={this.handleSaveChanges}
           debtUnderEdition={this.state.debtUnderEdition} 
           handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}>          
         </EditModal>
