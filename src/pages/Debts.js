@@ -42,8 +42,7 @@ export default class DebtsPage extends Component {
 
   handleSaveChanges = (e) => {
     e.preventDefault()
-    // console.log(`Debt ID:`, this.state.debtUnderEdition.id)
-    const customerName = e.target.elements.customerName.value
+    const customerName = this.state.debtUnderEdition.name
     const description = e.target.elements.description.value.trim()
     const value = e.target.elements.value.value
     this.setState((prevState) => ({
@@ -52,7 +51,8 @@ export default class DebtsPage extends Component {
           item = { ...item, name: customerName, description, value }
         }
         return item
-      })
+      }),
+      debtUnderEdition: undefined
     }))
   }
 
@@ -88,7 +88,7 @@ export default class DebtsPage extends Component {
           <div className='inputbar'>
             Cliente
             <Dropdown customers={this.state.customers} inputName="customerName" />
-            <input type="text" name='description' placeholder="Descrição"></input>
+            <input type="text" name="description" placeholder="Descrição"></input>
             <input type="number" name='value' placeholder="Valor" step="any" required></input>
             <button>Adicionar</button>
           </div>
@@ -100,6 +100,7 @@ export default class DebtsPage extends Component {
           handleEditDebt={this.handleEditDebt}
           handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}
         />
+        {this.state.debts.length > 0 ? '' : (<i>Nenhuma compra cadastrada</i>)}
         <EditModal
           customers={this.state.customers}
           handleSaveChanges={this.handleSaveChanges}
