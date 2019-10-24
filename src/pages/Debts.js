@@ -3,6 +3,7 @@ import CustomersService from '../services/customers.service'
 import Dropdown from '../components/Dropdown'
 import Table from '../components/Table'
 import EditModal from '../components/EditModal'
+import add from '../img/add.png'
 import './Debts.css'
 
 export default class DebtsPage extends Component {
@@ -38,7 +39,8 @@ export default class DebtsPage extends Component {
 
   handleEditDebt = (debtToEdit) => {
     this.setState(() => {
-      return ({ debtUnderEdition: debtToEdit })})
+      return ({ debtUnderEdition: debtToEdit })
+    })
   }
 
   handleSaveChanges = (e) => {
@@ -83,29 +85,32 @@ export default class DebtsPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="main">
         <h2>Compras</h2>
         <form onSubmit={this.handleNewDebt}>
-          <div className='inputbar'>
+          <div className="input-bar">
             <Dropdown customers={this.state.customers} inputName="customerName" />
             <input type="text" name="description" placeholder="Descrição"></input>
             <input type="number" name='value' placeholder="Valor" step="any" required></input>
-            <button>Adicionar</button>
+            <button className='add-button' type="submit"><img name="add-debt" alt="Enviar" src={add}></img></button>
           </div>
         </form>
         <br />
         <Table
           debts={this.state.debts}
+          customers={this.state.customers}
+          handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}
           handleDeleteDebt={this.handleDeleteDebt}
           handleEditDebt={this.handleEditDebt}
-          handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}
+          handleNewDebt={this.handleNewDebt}
+          className="customer-table"
         />
         {this.state.debts.length > 0 ? '' : (<i>Nenhuma compra cadastrada</i>)}
         <EditModal
           customers={this.state.customers}
           handleSaveChanges={this.handleSaveChanges}
-          debtUnderEdition={this.state.debtUnderEdition} 
-          handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}>          
+          debtUnderEdition={this.state.debtUnderEdition}
+          handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}>
         </EditModal>
       </div>
     )

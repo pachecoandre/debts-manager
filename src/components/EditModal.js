@@ -1,16 +1,18 @@
 import React from 'react'
 import Modal from 'react-modal'
+import './EditModal.css'
 
 Modal.setAppElement(document.getElementById('root'));
 
 const EditModal = (props) => (
   <Modal
+    className='modal'
     isOpen={!!props.debtUnderEdition}
     onRequestClose={props.handleClearDebtUnderEdition}
     contentLabel="Editar produto"
   >
     <h3>Editar Produto</h3>
-    <form onSubmit={props.handleSaveChanges}>      
+    <form onSubmit={props.handleSaveChanges}>
       <input
         type="text"
         name='customerName'
@@ -19,7 +21,7 @@ const EditModal = (props) => (
         disabled
       >
       </input>
-      { /* <Dropdown customers={props.customers} inputName="customerName" /> */ }
+      { /* <Dropdown customers={props.customers} inputName="customerName" /> */}
       <br />
       <input
         type="text"
