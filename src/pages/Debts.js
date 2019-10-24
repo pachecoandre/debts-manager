@@ -3,6 +3,7 @@ import CustomersService from '../services/customers.service'
 import Dropdown from '../components/Dropdown'
 import Table from '../components/Table'
 import EditModal from '../components/EditModal'
+import './Debts.css'
 
 export default class DebtsPage extends Component {
   state = {
@@ -86,7 +87,6 @@ export default class DebtsPage extends Component {
         <h2>Compras</h2>
         <form onSubmit={this.handleNewDebt}>
           <div className='inputbar'>
-            Cliente
             <Dropdown customers={this.state.customers} inputName="customerName" />
             <input type="text" name="description" placeholder="Descrição"></input>
             <input type="number" name='value' placeholder="Valor" step="any" required></input>

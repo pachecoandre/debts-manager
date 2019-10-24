@@ -9,7 +9,6 @@ const Table = (props) => (
           <th>Descrição</th>
           <th>Valor</th>
           <th></th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -23,13 +22,15 @@ const Table = (props) => (
                 <button onClick={(e) => {
                   props.handleDeleteDebt(item.id)
                 }}
-                >remover</button>
-              </td>
-              <td>
+                >
+                  remover
+                </button>
                 <button onClick={(e) => {
                   props.handleEditDebt(item)
                 }}
-                >editar</button>
+                >
+                  editar
+                </button>
               </td>
             </tr>
           ))

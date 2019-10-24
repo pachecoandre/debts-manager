@@ -10,15 +10,21 @@ const EditModal = (props) => (
     contentLabel="Editar produto"
   >
     <h3>Editar Produto</h3>
-    <form onSubmit={props.handleSaveChanges}>
-      Cliente: <span> </span>
-      { /* <Dropdown customers={props.customers} inputName="customerName" /> */ 
-        props.debtUnderEdition ? props.debtUnderEdition.name : ""
-      }
+    <form onSubmit={props.handleSaveChanges}>      
+      <input
+        type="text"
+        name='customerName'
+        placeholder='Descrição'
+        defaultValue={props.debtUnderEdition ? props.debtUnderEdition.name : ""}
+        disabled
+      >
+      </input>
+      { /* <Dropdown customers={props.customers} inputName="customerName" /> */ }
       <br />
       <input
         type="text"
         name='description'
+        placeholder='Descrição'
         defaultValue={props.debtUnderEdition ? props.debtUnderEdition.description : ""}
       >
       </input>
@@ -26,14 +32,16 @@ const EditModal = (props) => (
       <input
         type="number"
         name='value'
+        placeholder='Valor'
         step="any"
         defaultValue={props.debtUnderEdition ? props.debtUnderEdition.value : ""}
         required
       >
       </input>
-      <button>OK</button>
+      <br />
+      <input type="submit" value="OK"></input>
+      <button onClick={props.handleClearDebtUnderEdition}>Cancelar</button>
     </form>
-    <button onClick={props.handleClearDebtUnderEdition}>Cancelar</button>
   </Modal>
 )
 
