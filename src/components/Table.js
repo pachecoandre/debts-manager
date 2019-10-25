@@ -10,7 +10,7 @@ const Table = (props) => (
           <th>Cliente</th>
           <th className="desc-column">Descrição</th>
           <th className="num-column">Valor</th>
-          <th className="data-column">Data</th>
+          <th className="date-column">Data</th>
           <th></th>
         </tr>
       </thead>
@@ -21,7 +21,7 @@ const Table = (props) => (
               <td>{item.name}</td>
               <td className="desc-column">{item.description}</td>
               <td className="num-column">{item.value}</td>
-              <td className="data-column">{moment().format('DD/MM/YYYY')}</td>
+              <td className="date-column">{moment().format('DD/MM/YYYY')}</td>
               <td>
                 <button className='remove-button' onClick={(e) => {
                   props.handleDeleteDebt(item.id)

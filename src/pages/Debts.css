@@ -2,9 +2,14 @@
   display: flex;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .input-bar {
     display: table-row;
+  }
+
+  .input-bar-container {
+    width: 60%;
+    align-items: baseline;
   }
 }
 
@@ -19,14 +24,20 @@ select, input[type="text"], [type="number"] {
   border: 1px solid #dddddd;
   border-radius: 4px;
   font-size: 15px;
+  margin-top: 4px;
   padding: 8px 10px;
   width: 90%;
-  margin: 3px;
 }
 
 select {
   min-width: 200px;
   width: 95%;
+}
+
+.label {
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 12px;
 }
 
 
@@ -54,4 +65,15 @@ h2 {
 
 .add-button img {
   width: 30px;
+}
+
+.add-button {
+  align-items: bottom;
+  border: none;
+  opacity: 0.7;
+  background-color: transparent;
+  height: 40px;
+  padding: 4px;
+  flex-direction: row;
+  margin-top: 28px;
 }

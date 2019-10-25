@@ -90,9 +90,18 @@ export default class DebtsPage extends Component {
         <div className="input-bar-container">
           <form onSubmit={this.handleNewDebt}>
             <div className="input-bar">
-              <Dropdown customers={this.state.customers} inputName="customerName" />
-              <input type="text" name="description" placeholder="Descrição"></input>
-              <input type="number" name='value' placeholder="Valor" step="any" required></input>
+              <div className="label">
+                Cliente
+                <Dropdown customers={this.state.customers} inputName="customerName" />
+              </div>
+              <div className="label">
+                Descrição
+                <input type="text" name="description" placeholder=""></input>
+              </div>
+              <div className="label">
+                Valor
+                <input type="number" name='value' placeholder="" step="any" required></input>
+              </div>              
               <button className='add-button' type="submit"><img name="add-debt" alt="Enviar" src={add}></img></button>
             </div>
           </form>
