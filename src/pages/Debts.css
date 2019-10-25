@@ -1,23 +1,57 @@
+.input-bar {
+  display: flex;
+}
+
+@media (max-width: 700px) {
+  .input-bar {
+    display: table-row;
+  }
+}
+
+.input-bar-container {
+  margin: auto;
+  max-width: 800px;
+  padding: 20px;
+}
+
 select, input[type="text"], [type="number"] {
-  font-size: 15px;
-  padding: 8px 10px;
+  background: white;
   border: 1px solid #dddddd;
   border-radius: 4px;
-  background-color: white;
+  font-size: 15px;
+  padding: 8px 10px;
+  width: 90%;
+  margin: 3px;
 }
+
+select {
+  min-width: 200px;
+  width: 95%;
+}
+
 
 button {
   cursor: pointer;
+}
+
+.center-text {
+  text-align: center;
 }
 
 .customer-table {
   float: right;
 }
 
-.input-bar {
-  display: flex;
+.header {
+  background-color: #246A73;
+  padding: 20px;
+  color: #dddddd;
 }
 
-.main {
-  margin-left: 10px;
+h2 {
+  margin: 0px
+}
+
+.add-button img {
+  width: 30px;
 }

@@ -86,16 +86,17 @@ export default class DebtsPage extends Component {
   render() {
     return (
       <div className="main">
-        <h2>Compras</h2>
-        <form onSubmit={this.handleNewDebt}>
-          <div className="input-bar">
-            <Dropdown customers={this.state.customers} inputName="customerName" />
-            <input type="text" name="description" placeholder="Descrição"></input>
-            <input type="number" name='value' placeholder="Valor" step="any" required></input>
-            <button className='add-button' type="submit"><img name="add-debt" alt="Enviar" src={add}></img></button>
-          </div>
-        </form>
-        <br />
+        <div className="header"><h2>Compras</h2></div>
+        <div className="input-bar-container">
+          <form onSubmit={this.handleNewDebt}>
+            <div className="input-bar">
+              <Dropdown customers={this.state.customers} inputName="customerName" />
+              <input type="text" name="description" placeholder="Descrição"></input>
+              <input type="number" name='value' placeholder="Valor" step="any" required></input>
+              <button className='add-button' type="submit"><img name="add-debt" alt="Enviar" src={add}></img></button>
+            </div>
+          </form>
+        </div>
         <Table
           debts={this.state.debts}
           customers={this.state.customers}
@@ -105,7 +106,9 @@ export default class DebtsPage extends Component {
           handleNewDebt={this.handleNewDebt}
           className="customer-table"
         />
-        {this.state.debts.length > 0 ? '' : (<i>Nenhuma compra cadastrada</i>)}
+        <div className="center-text">
+          {this.state.debts.length > 0 ? '' : (<i>Nenhuma compra cadastrada</i>)}
+        </div>
         <EditModal
           customers={this.state.customers}
           handleSaveChanges={this.handleSaveChanges}

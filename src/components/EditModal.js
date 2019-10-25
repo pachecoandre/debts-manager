@@ -22,7 +22,6 @@ const EditModal = (props) => (
       >
       </input>
       { /* <Dropdown customers={props.customers} inputName="customerName" /> */}
-      <br />
       <input
         type="text"
         name='description'
@@ -40,9 +39,10 @@ const EditModal = (props) => (
         required
       >
       </input>
-      <br />
-      <input type="submit" value="OK"></input>
-      <button onClick={props.handleClearDebtUnderEdition}>Cancelar</button>
+      <div className="modal-submit-buttons">
+        <input className="save-changes-button" type="submit" value="OK"></input>
+        <button className="cancel-changes-button" onClick={props.handleClearDebtUnderEdition}>Cancelar</button>
+      </div>
     </form>
   </Modal>
 )

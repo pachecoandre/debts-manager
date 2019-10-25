@@ -3,14 +3,14 @@ import moment from 'moment'
 import './Table.css'
 
 const Table = (props) => (
-  <div>
-    <table>
+  <div className="debts-table">
+    <table align="center">
       <thead>
         <tr>
           <th>Cliente</th>
-          <th>Descrição</th>
-          <th>Valor</th>
-          <th>Data</th>
+          <th className="desc-column">Descrição</th>
+          <th className="num-column">Valor</th>
+          <th className="data-column">Data</th>
           <th></th>
         </tr>
       </thead>
@@ -19,9 +19,9 @@ const Table = (props) => (
           props.debts.map((item) => (
             <tr key={item.id}>
               <td>{item.name}</td>
-              <td>{item.description}</td>
-              <td>{item.value}</td>
-              <td>{moment().format('DD/MM/YYYY')}</td>
+              <td className="desc-column">{item.description}</td>
+              <td className="num-column">{item.value}</td>
+              <td className="data-column">{moment().format('DD/MM/YYYY')}</td>
               <td>
                 <button className='remove-button' onClick={(e) => {
                   props.handleDeleteDebt(item.id)
