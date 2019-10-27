@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import CustomersService from '../services/customers.service'
-import Dropdown from '../components/Dropdown'
-import Table from '../components/Table'
-import EditModal from '../components/EditModal'
-import ListModal from '../components/ListModal'
+import Dropdown from './Dropdown'
+import Table from './Table'
+import EditModal from './EditModal'
+import ListModal from './ListModal'
 import add from '../img/add.png'
-import './Debts.css'
+import './App.css'
 
 export default class DebtsPage extends Component {
    state = {
@@ -47,7 +47,8 @@ export default class DebtsPage extends Component {
 
    handleSaveChanges = (e) => {
       e.preventDefault()
-      const customerName = this.state.debtUnderEdition.name
+      // const customerName = this.state.debtUnderEdition.name
+      const customerName = e.target.elements.customerName.value
       const description = e.target.elements.description.value.trim()
       const value = e.target.elements.value.value
       this.setState((prevState) => ({
@@ -116,7 +117,7 @@ export default class DebtsPage extends Component {
                </form>
             </div>
             {this.state.debts.length === 0 ? (
-               <div className="center-text"><i>Nenhuma compra cadastrada</i></div>
+               <div className="center-text"><i>Nenhuma dívida cadastrada</i></div>
                ) : (
                <Table
                   debts={this.state.debts}

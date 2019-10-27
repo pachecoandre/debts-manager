@@ -31,7 +31,7 @@ const ListModal = (props) => {
                   filterDebts().map((element, index) => (
                      <tr key={index}>
                         <td>{element.description}</td>
-                        <td>{element.value}</td>
+                        <td className="num-column">{element.value}</td>
                      </tr>
                   ))
                }
