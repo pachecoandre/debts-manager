@@ -16,10 +16,13 @@ const EditModal = (props) => (
       <form onSubmit={props.handleSaveChanges}>
          <div className="label">
             Cliente
-            <Dropdown customers={props.customers} inputName="customerName" />
+            <Dropdown
+               customers={props.customers}
+               inputName="customerName"
+               defaultValue={props.debtUnderEdition ? props.debtUnderEdition.name : ""} />
             </div>
             <div className="label">
-            Descrição
+               Descrição
             <input
                type="text"
                name='description'
@@ -28,7 +31,7 @@ const EditModal = (props) => (
             />
             </div>
             <div className="label">
-            Valor
+               Valor
             <input
                type="number"
                name='value'
