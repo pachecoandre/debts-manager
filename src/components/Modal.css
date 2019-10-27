@@ -1,0 +1,42 @@
+.ReactModalPortal .ReactModal__Overlay {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  transition: opacity 200ms ease-in-out;
+}
+
+.modal__body {
+  font-size: 2rem;
+  font-weight: 300;
+  word-break: break-all;
+}
+
+.modal {
+  background: #A5CBC3;
+  color: #333333;
+  max-width: 300px;
+  outline: none;
+  padding: 50px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.modal-submit-buttons {
+  margin-top: 15px
+}
+
+.save-changes-button, .cancel-changes-button{
+  background: #246A73;
+  border: none;
+  color: #dddddd;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 4px;
+}
+
+.save-changes-button {
+  margin-right: 10px;
+  width: 80px
+}
