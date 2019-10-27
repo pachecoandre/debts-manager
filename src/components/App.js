@@ -47,7 +47,6 @@ export default class DebtsPage extends Component {
 
    handleSaveChanges = (e) => {
       e.preventDefault()
-      // const customerName = this.state.debtUnderEdition.name
       const customerName = e.target.elements.customerName.value
       const description = e.target.elements.description.value.trim()
       const value = e.target.elements.value.value
@@ -116,20 +115,16 @@ export default class DebtsPage extends Component {
                   </div>
                </form>
             </div>
-            {this.state.debts.length === 0 ? (
-               <div className="center-text"><i>Nenhuma dívida cadastrada</i></div>
-               ) : (
-               <Table
-                  debts={this.state.debts}
-                  customers={this.state.customers}
-                  handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}
-                  handleDeleteDebt={this.handleDeleteDebt}
-                  handleEditDebt={this.handleEditDebt}
-                  handleListCustomerDebts={this.handleListCustomerDebts}
-                  handleNewDebt={this.handleNewDebt}
-                  className="customer-table"
-               />
-            )}
+            <Table
+               debts={this.state.debts}
+               customers={this.state.customers}
+               handleClearDebtUnderEdition={this.handleClearDebtUnderEdition}
+               handleDeleteDebt={this.handleDeleteDebt}
+               handleEditDebt={this.handleEditDebt}
+               handleListCustomerDebts={this.handleListCustomerDebts}
+               handleNewDebt={this.handleNewDebt}
+               className="customer-table"
+            />
             <EditModal
                customers={this.state.customers}
                handleSaveChanges={this.handleSaveChanges}
